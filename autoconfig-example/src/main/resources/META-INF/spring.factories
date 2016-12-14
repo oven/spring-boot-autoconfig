@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-no.bouvet.autoconfig.DebugFilterAutoconfig
+no.bouvet.autoconfig.DebugFilterAutoconfig, no.bouvet.autoconfig.JodaTimeAutoconfig
