@@ -11,6 +11,7 @@
     <modules>
         <module>autoconfig-example</module>
         <module>webapp</module>
+        <module>parking-rest-client</module>
     </modules>
 
     <properties>
