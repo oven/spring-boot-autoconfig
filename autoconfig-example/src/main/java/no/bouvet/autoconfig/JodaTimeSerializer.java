@@ -12,8 +12,6 @@ import java.io.IOException;
 public class JodaTimeSerializer extends JsonSerializer<LocalDate> {
     @Override
     public void serialize(LocalDate localDate, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException, JsonProcessingException {
-        jsonGenerator.writeStartObject();
-        jsonGenerator.writeStringField("time", localDate.toString());
-        jsonGenerator.writeEndObject();
+        jsonGenerator.writeString(localDate.toString());
     }
 }
