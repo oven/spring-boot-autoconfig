@@ -6,19 +6,17 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.joda.time.LocalTime;
+import org.joda.time.format.DateTimeFormat;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class ParkingClient {
 
     private URI endpoint;
     private Gson gson = new Gson();
-    private final static DateFormat df = new SimpleDateFormat("HH:mm");
 
     public CarParkStatus[] getData() throws IOException {
         HttpGet get = new HttpGet(endpoint);
@@ -30,11 +28,9 @@ public class ParkingClient {
             Parkeringshusstatus[] deserialized = gson.fromJson(new InputStreamReader(entity.getContent()), Parkeringshusstatus[].class);
             CarParkStatus[] result = new CarParkStatus[deserialized.length];
             for (int i = 0; i < deserialized.length; i++) {
-                result[i] = new CarParkStatus(deserialized[i].navn, deserialized[i].ledigePlasser, df.parse(deserialized[i].oppdatert));
+                result[i] = new CarParkStatus(deserialized[i].navn, deserialized[i].ledigePlasser, LocalTime.parse(deserialized[i].oppdatert, DateTimeFormat.forPattern("HH:mm")));
             }
             return result;
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         }
     }
 
