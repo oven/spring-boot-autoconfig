@@ -24,7 +24,7 @@ public class ParkingClient {
         HttpGet get = new HttpGet(endpoint);
         try (
                 CloseableHttpClient httpClient = HttpClients.createDefault();
-                CloseableHttpResponse response = httpClient.execute(get);
+                CloseableHttpResponse response = httpClient.execute(get)
         ) {
             HttpEntity entity = response.getEntity();
             Parkeringshusstatus[] deserialized = gson.fromJson(new InputStreamReader(entity.getContent()), Parkeringshusstatus[].class);

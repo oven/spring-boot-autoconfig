@@ -1,6 +1,5 @@
 package no.bouvet.webapp;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -21,4 +20,3 @@ public class Main extends SpringBootServletInitializer implements WebApplication
         SpringApplication.run(Main.class, args);
     }
 }
-

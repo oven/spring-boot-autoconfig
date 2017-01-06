@@ -1,1 +1,3 @@
 debug: true
+
+parking.endpoint: https://www.bergen.kommune.no/wsproxy/parkering.json
