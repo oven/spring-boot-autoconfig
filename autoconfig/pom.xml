@@ -3,9 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>no.bouvet</groupId>
-    <artifactId>webapp</artifactId>
+    <artifactId>autoconfig</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>1.4.1.RELEASE</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
