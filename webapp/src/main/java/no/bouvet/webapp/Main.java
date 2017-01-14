@@ -8,4 +8,14 @@ public class Main {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Main.class, args);
     }
+
+/*
+    @Bean
+    public ParkingClient parkingClient() {
+        ParkingClient parkingClient = new ParkingClient();
+        parkingClient.setEndpoint(URI.create("http://www.vg.no"));
+        return parkingClient;
+    }
+*/
+
 }
