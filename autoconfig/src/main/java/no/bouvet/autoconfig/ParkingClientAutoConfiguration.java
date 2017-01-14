@@ -1,21 +1,24 @@
 package no.bouvet.autoconfig;
 
 import no.bouvet.parking.ParkingClient;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.net.URI;
 
 @Configuration
+@ConditionalOnProperty("parking.endpoint")
 public class ParkingClientAutoConfiguration {
     public ParkingClientAutoConfiguration() {
         System.out.println("\n\n***** Configuring parking client\n\n");
     }
 
     @Bean
-    public ParkingClient parkingClient() {
+    public ParkingClient parkingClient(@Value("${parking.endpoint}") URI endpoint) {
         ParkingClient parkingClient = new ParkingClient();
-        parkingClient.setEndpoint(URI.create("https://www.bergen.kommune.no/wsproxy/parkering.json"));
+        parkingClient.setEndpoint(endpoint);
         return parkingClient;
     }
 }
