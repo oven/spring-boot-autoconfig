@@ -2,7 +2,7 @@ Spring Boot Autoconfiguration workshop
 ==============
 
 Dette prosjektet inneholder oppgaver til en workshop om Spring Boot Autoconfiguration.
-Klon repoet og følg oppgavene under. [NOE om prosjektstruktur her]
+Klon repoet og følg oppgavene under.
 
 
 # Oppgave 1 (Lage Spring Boot prosjektet)
@@ -117,7 +117,9 @@ Vi har laget et tomt prosjekt som heter `autoconfig` som vi nå skal fylle ut.
 - [ ] Legg til avhengighet til `autoconfig` i `webapp/pom.xml`
 
 <details>
-<summary>Klikk her for løsning</summary>
+<summary><b>Klikk her for løsning</b></summary>
+
+## Løsning
 
 Vi begynner med å lage en veldig enkel konfigurasjonsklasse i `autoconfig`-prosjektet:
 
@@ -174,7 +176,9 @@ Denne skal vi bruke for å representere et tredjepartsbibliotek som vi skal lage
 
 
 <details>
-<summary>Klikk her for løsning</summary>
+<summary><b>Klikk her for løsning</b></summary>
+
+## Løsning
 
 Vi begynner med å legge den til i `webapp/pom.xml`:
 
@@ -236,7 +240,9 @@ Det er jo litt upraktisk at URLen til `ParkingClient` er hardkodet, så vi flytt
 
 
 <details>
-<summary>Klikk her for løsning</summary>
+<summary><b>Klikk her for løsning</b></summary>
+
+## Løsning
 
 Vi endrer ParkingClientAutoconfig slik at parkingClient får injisert en property:
 
@@ -306,7 +312,9 @@ Nå har vi en fungerende autokonfigurasjon for `ParkingClient`. Men hva hvis vi 
 - [ ] Bruk `@ConditionalOnMissingBean` i autoconfig-prosjektet for å tillate overstyring av bean-definisjonen
 
 <details>
-<summary>Klikk her for løsning</summary>
+<summary><b>Klikk her for løsning</b></summary>
+
+## Løsning
 
 Legg til følgende i `Main.java`:
 
@@ -388,7 +396,9 @@ For å få Jackson til å bruke denne serializeren må vi registrere den. Det gj
 
 
 <details>
-<summary>Klikk her for løsning</summary>
+<summary><b>Klikk her for løsning</b></summary>
+
+## Løsning
 
 Vi må legge til en optional dependency til `joda-time` og `jackson-databind` i `autoconfig/pom.xml`.
 
@@ -533,6 +543,7 @@ Husk at avhengigheten til `spring-boot-actuator` i `autoconfig` må være option
 Og husk å legge til `ParkingClientHealthAutoConfiguration` i `autoconfig/src/main/resources/META-INF/spring.factories`!
 
 </details>
+
 
 
 # Videre lesning
