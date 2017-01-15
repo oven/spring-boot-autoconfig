@@ -116,7 +116,7 @@ Vi har laget et tomt prosjekt som heter `autoconfig` som vi nå skal fylle ut.
 - [ ] Registrer klassen i `autoconfig/src/main/resources/META-INF/spring.factories`
 - [ ] Legg til avhengighet til `autoconfig` i `webapp/pom.xml`
 
-<-details>
+<details>
 <summary>Klikk her for løsning</summary>
 
 Vi begynner med å lage en veldig enkel konfigurasjonsklasse i `autoconfig`-prosjektet:
@@ -173,7 +173,7 @@ Denne skal vi bruke for å representere et tredjepartsbibliotek som vi skal lage
 - [ ] Start applikasjonen og se at det virker
 
 
-<-details>
+<details>
 <summary>Klikk her for løsning</summary>
 
 Vi begynner med å legge den til i `webapp/pom.xml`:
@@ -235,7 +235,7 @@ Det er jo litt upraktisk at URLen til `ParkingClient` er hardkodet, så vi flytt
 - [ ] Legg til `@ConditionalOnProperty` i `ParkingClientAutoConfiguration` for å unngå problemer hvis propertyen ikke er satt
 
 
-<-details>
+<details>
 <summary>Klikk her for løsning</summary>
 
 Vi endrer ParkingClientAutoconfig slik at parkingClient får injisert en property:
@@ -272,7 +272,7 @@ public class ParkingClientAutoconfig {
 ```
 
 [`@ConditionalOnProperty`](http://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/condition/ConditionalOnProperty.html) gjør at konfigurasjonen bare blir aktivert hvis propertyen er satt. Annoteringen har flere valgfrie elementer, bla.a `havingValue` og `matchIfMissing` som lar oss tilpasse oppførselen.
-<-/details>
+</details>
 
 # Oppgave 5
 
@@ -305,7 +305,7 @@ Nå har vi en fungerende autokonfigurasjon for `ParkingClient`. Men hva hvis vi 
 - [ ] Start prosjektet, og se at det ikke var fullt så enkelt
 - [ ] Bruk `@ConditionalOnMissingBean` i autoconfig-prosjektet for å tillate overstyring av bean-definisjonen
 
-<-details>
+<details>
 <summary>Klikk her for løsning</summary>
 
 Legg til følgende i `Main.java`:
@@ -387,7 +387,7 @@ For å få Jackson til å bruke denne serializeren må vi registrere den. Det gj
 - [ ] For ekstra bonuspoeng: gjør det mulig å skru av eller på serialisering av `LocalTime` ved hjelp av en property i `application.yml`.
 
 
-<-details>
+<details>
 <summary>Klikk her for løsning</summary>
 
 Vi må legge til en optional dependency til `joda-time` og `jackson-databind` i `autoconfig/pom.xml`.
@@ -489,7 +489,7 @@ public class ParkingClientHealthIndicator extends AbstractHealthIndicator {
 
 Lag en autokonfigurasjon for `ParkingClientHealthIndicator`. Husk å legge til det som trengs av avhengigheter og conditionals.
 
-<-details>
+<details>
 <summary><b>Klikk her for løsning</b></summary>
 
 ## Løsning
@@ -532,7 +532,7 @@ Husk at avhengigheten til `spring-boot-actuator` i `autoconfig` må være option
 
 Og husk å legge til `ParkingClientHealthAutoConfiguration` i `autoconfig/src/main/resources/META-INF/spring.factories`!
 
-<-/details>
+</details>
 
 
 # Videre lesning
