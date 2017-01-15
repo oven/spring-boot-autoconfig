@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-no.bouvet.autoconfig.ParkingClientAutoConfiguration,no.bouvet.autoconfig.JodaTimeAutoConfiguration
+no.bouvet.autoconfig.ParkingClientAutoConfiguration,no.bouvet.autoconfig.JodaTimeAutoConfiguration,no.bouvet.autoconfig.ParkingClientHealthAutoConfiguration
