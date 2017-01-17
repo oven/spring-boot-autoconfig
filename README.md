@@ -176,7 +176,7 @@ Denne skal vi bruke for å representere et tredjepartsbibliotek som vi skal lage
 
 - [ ] Legg til avhengighet til parking-rest-client i `webapp/pom.xml`
 - [ ] Lag en rest-endpoint som bruker en autowired ParkingClient til å returnere noe data
-- [ ] Lag en configuration-klasse i `autoconfig` som oppretter en ParkingClient og setter endpoint til https://www.bergen.kommune.no/wsproxy/parkering.json
+- [ ] Bruk `ParkingClientAutoConfiguration` til å opprette en spring bean av typen `ParkingClient` og sett endpoint til `https://www.bergen.kommune.no/wsproxy/parkering.json`
 - [ ] Start applikasjonen og se at det virker
 
 
