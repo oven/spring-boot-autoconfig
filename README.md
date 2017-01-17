@@ -116,8 +116,10 @@ Derfor skal vi lage et separat autoconfig prosjekt.
 Vi har laget et tomt prosjekt som heter `autoconfig` som vi nå skal fylle ut.
 
 - [ ] Lag en klasse i autoconfig-prosjektet, og kall den `ParkingClientAutoConfiguration`
+- [ ] Annoter denne klassen med `@Configuration`, slik at den blir en spring-configklasse
 - [ ] Registrer klassen i `autoconfig/src/main/resources/META-INF/spring.factories`
 - [ ] Legg til avhengighet til `autoconfig` i `webapp/pom.xml`
+- [ ] Skriv ut noe til skjermen i constructoren til `ParkingClientAutoConfiguration`, og se at dette kommer frem når du starter `webapp`
 
 <details>
 <summary><b>Klikk her for løsning</b></summary>
