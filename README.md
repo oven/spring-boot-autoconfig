@@ -15,7 +15,9 @@ Begynn med å klone github-prosjektet. Der finner du et tomt prosjekt som heter 
 git clone https://github.com/oven/spring-boot-autoconfig.git
 ```
 
-For å gjøre dette om til et spring-boot-prosjekt må du legge til spring-boot-starter-parent som parent i `pom.xml`
+For å gjøre dette om til et spring-boot-prosjekt må du legge til spring-boot-starter-parent som parent i `webapp/pom.xml`
+Legg også til `spring-boot-starter-web` som en dependency i pom.xml. Dette vil inkludere Tomcat og alt som trengs for en webapp. Hvis man ønsker å bruke Jetty eller Undertow i stedet legger man den bare til som en egen dependency og ekskluderer Tomcat fra spring-boot-starter-web.
+
 
 ```xml
 <parent>
@@ -24,6 +26,13 @@ For å gjøre dette om til et spring-boot-prosjekt må du legge til spring-boot-
     <version>1.4.1.RELEASE</version>
     <relativePath/>
 </parent>
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+<dependency>
+
 ```
 
 Deretter må du finne `Main`-klassen og annotere denne med `@SpringBootApplication` og kalle `SpringApplication.run()`. Dette starter Spring. 
@@ -37,10 +46,9 @@ public class Main {
 }
 ```
 
-Start og se at det virker. Du burde se en banner hvor det står Spring Boot, før applikasjonen avslutter.
-
+Nå kan du starte prosjektet og se at det virker. 
 ```
-$ mvn spring-boot:run
+mvn spring-boot:run
 [...]
 
   .   ____          _            __ _ _
@@ -50,16 +58,11 @@ $ mvn spring-boot:run
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v1.4.1.RELEASE)
+2017-01-13 22:12:46.545  INFO 28226 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : 
+Tomcat started on port(s): 8080 (http)
 ```
 
-Legg til `spring-boot-starter-web` som en dependency i pom.xml. Dette vil inkludere Tomcat og alt som trengs for en webapp. Hvis man ønsker å bruke Jetty eller Undertow i stedet legger man den bare til som en egen dependency og ekskluderer Tomcat fra spring-boot-starter-web.
-
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-```
+Dette gir deg en webapplikasjon som lytter på port 8080, men foreløpig gjør den ingenting. 
 
 Nå kan du legge til en REST-controller
 ```java
